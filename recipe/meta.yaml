@@ -1,5 +1,5 @@
 {% set name = "sasmodels" %}
-{% set version = "0.98" %}
+{% set version = "0.99" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 151a0e3d75c1cf42df8126a3fa919e988b0f332051e876383739d50034716373
+  sha256: 07a243b6d2cfaa16d8b5ad6f22520aae78c9bfe971b79bf2ebbb5828f493a6e1
 
 build:
   number: 0
