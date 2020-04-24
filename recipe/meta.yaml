@@ -1,17 +1,17 @@
 {% set name = "sasmodels" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 62f52b4b6ae42d76acab784548e954f912c5ff3c073949a17fde000ca2b102d9
+  sha256: d495a777bf62997cc6ce83177554e206b3454975f0b9aac2ce85bb9429acb25f
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv '
   noarch: python
 
 requirements:
