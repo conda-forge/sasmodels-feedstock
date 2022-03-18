@@ -1,5 +1,5 @@
 {% set name = "sasmodels" %}
-{% set version = "1.0.5" %}
+{% set version = "1.0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 359d87801615dca96a665439c1b48f89afd4a7e2dcb58b1c92be45331c40ce11
+  sha256: 443e48c0755a159326135595cd5dbd170e0137e01bec1862d76f79f5dcbd8e7b
 
 build:
   number: 0
@@ -16,14 +16,14 @@ build:
 
 requirements:
   host:
-    - pip
     - python >=3.6
+    - pip
   run:
     - python >=3.6
-    - numpy
-    - scipy
     - bumps
+    - numpy
     - pyopencl
+    - scipy
 
 test:
   imports:
@@ -42,3 +42,4 @@ about:
 extra:
   recipe-maintainers:
     - tschoonj
+    - mrakitin
