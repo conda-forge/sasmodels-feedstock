@@ -1,5 +1,5 @@
 {% set name = "sasmodels" %}
-{% set version = "1.0.7" %}
+{% set version = "1.0.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ac9127c525b88f9731cd325b05c21f29f45371ba31095df8e207fd56553124c0
+  sha256: 96bc2679492a1f8df9fc7907e0fe12bb3a9224caa652b13b8b941b2a71d5d4ef
 
 build:
   number: 0
@@ -18,6 +18,7 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - setuptools
   run:
     - python >=3.6
     - bumps
