@@ -18,7 +18,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools
+    - hatchling
+    - hatchling-build
   run:
     - python >={{ python_min }}
     - bumps
