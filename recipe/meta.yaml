@@ -20,6 +20,7 @@ requirements:
     - pip
     - hatchling
     - hatch-build
+    - hatch-requirements-txt
   run:
     - python >={{ python_min }}
     - bumps
