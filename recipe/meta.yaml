@@ -24,6 +24,7 @@ requirements:
     - hatch-sphinx
     - hatch-vcs
     - numpy
+    - scipy
   run:
     - python >={{ python_min }}
     - bumps
