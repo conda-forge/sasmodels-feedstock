@@ -12,19 +12,34 @@ source:
 build:
   number: 0
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv '
-  noarch: python
 
 requirements:
   host:
-    - python {{ python_min }}
-    - pip
+    - {{ compiler('c') }}
+    - python
     - hatchling
-  run:
-    - python >={{ python_min }}
+    - hatch-requirements-txt
+    - hatch-sphinx
+    - hatch-vcs
     - bumps
+    - docutils
+    - matplotlib-base
+    - columnize
+    - numpy
+    - scipy
+    - siphash24
+    - sphinx
+    - pip
+  run:
+    - {{ compiler('c') }}
+    - python
+    - bumps
+    - columnize
+    - matplotlib-base
     - numpy
     - pyopencl
     - scipy
+    - siphash24
 
 test:
   requires:
@@ -33,6 +48,10 @@ test:
     - sasmodels
     - sasmodels.custom
     - sasmodels.models
+    # test the on-the-fly compilation using the C compiler
+    - sasmodels.kerneldll
+    # test OpenCL
+    - sasmodels.kernelcl
 
 about:
   home: http://www.sasview.org
