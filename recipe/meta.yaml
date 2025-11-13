@@ -16,22 +16,27 @@ build:
 
 requirements:
   host:
+    - {{ compiler('c') }}
     - python {{ python_min }}
     - pip
     - hatchling
-    - hatch-build
     - hatch-requirements-txt
     - hatch-sphinx
     - hatch-vcs
+    - bumps
     - matplotlib-base
     - numpy
     - scipy
+    - siphash24
+    - sphinx
   run:
     - python >={{ python_min }}
     - bumps
+    - matplotlib-base
     - numpy
     - pyopencl
     - scipy
+    - siphash24
 
 test:
   requires:
