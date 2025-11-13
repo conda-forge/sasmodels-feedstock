@@ -11,7 +11,9 @@ source:
 
 build:
   number: 0
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv '
+  script:
+    - call "%VSINSTALLDIR%\VC\Auxiliary\Build\vcvarsall.bat" x64 || exit 1  # [win]
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
 
 requirements:
   host:
@@ -24,7 +26,6 @@ requirements:
     - bumps
     - docutils
     - matplotlib-base
-    - columnize
     - numpy
     - scipy
     - siphash24
@@ -34,7 +35,6 @@ requirements:
     - {{ compiler('c') }}
     - python
     - bumps
-    - columnize
     - matplotlib-base
     - numpy
     - pyopencl
