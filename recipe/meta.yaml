@@ -1,5 +1,6 @@
 {% set name = "sasmodels" %}
 {% set version = "1.0.10" %}
+{% set python_max = "3.14" %}
 
 package:
   name: {{ name|lower }}
@@ -11,14 +12,13 @@ source:
 
 build:
   number: 0
-  script:
-    - call "%VSINSTALLDIR%\VC\Auxiliary\Build\vcvarsall.bat" x64 || exit 1  # [win]
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv '
+  noarch: python
 
 requirements:
   host:
     - {{ compiler('c') }}
-    - python
+    - python >={{ python_min }},<{{ python_max }}
     - hatchling
     - hatch-requirements-txt
     - hatch-sphinx
@@ -32,8 +32,7 @@ requirements:
     - sphinx
     - pip
   run:
-    - {{ compiler('c') }}
-    - python
+    - python >={{ python_min }},<{{ python_max }}
     - bumps
     - matplotlib-base
     - numpy
@@ -48,10 +47,6 @@ test:
     - sasmodels
     - sasmodels.custom
     - sasmodels.models
-    # test the on-the-fly compilation using the C compiler
-    - sasmodels.kerneldll
-    # test OpenCL
-    - sasmodels.kernelcl
 
 about:
   home: http://www.sasview.org
