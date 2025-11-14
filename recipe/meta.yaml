@@ -12,6 +12,9 @@ source:
 build:
   number: 0
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv '
+  # Marked noarch: python because the .c sources are only compiled at runtime,
+  # and only for specific models. kerneldll.py picks up the system compiler
+  # (CC/msvc/mingw) automatically.
   noarch: python
 
 requirements:
