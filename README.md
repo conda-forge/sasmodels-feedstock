@@ -3,13 +3,13 @@ About sasmodels-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sasmodels-feedstock/blob/main/LICENSE.txt)
 
-Home: http://www.sasview.org
+Home: http://sasview.org/
 
 Package license: BSD-3-Clause
 
-Summary: Package for calculation of small angle scattering models using OpenCL
+Summary: SasModels small-angle scattering modelling
 
-Development: https://github.com/SasView/sasmodels
+Documentation: https://www.sasview.org/docs/user/qtgui/Perspectives/Fitting/models/index.html
 
 Current build status
 ====================
@@ -42,31 +42,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `sasmodels` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install sasmodels
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install sasmodels
 ```
 
-It is possible to list all of the versions of `sasmodels` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add sasmodels
+# for installing globally
+pixi global install sasmodels
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `sasmodels` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search sasmodels --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search sasmodels --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search sasmodels --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -78,6 +120,8 @@ mamba repoquery whoneeds sasmodels --channel conda-forge
 # List dependencies of `sasmodels`:
 mamba repoquery depends sasmodels --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
