@@ -1,0 +1,30 @@
+diff --color -Naur sasmodels-1.1.0.orig/build_tools/requirements.txt sasmodels-1.1.0/build_tools/requirements.txt
+--- sasmodels-1.1.0.orig/build_tools/requirements.txt	2020-02-01 21:00:00.000000000 -0300
++++ sasmodels-1.1.0/build_tools/requirements.txt	2026-08-19 12:55:13.330537285 -0300
+@@ -4,4 +4,3 @@
+ numpy
+ scipy
+ siphash24
+-tccbox
+diff --color -Naur sasmodels-1.1.0.orig/PKG-INFO sasmodels-1.1.0/PKG-INFO
+--- sasmodels-1.1.0.orig/PKG-INFO	2020-02-01 21:00:00.000000000 -0300
++++ sasmodels-1.1.0/PKG-INFO	2026-08-19 13:01:24.935052004 -0300
+@@ -28,7 +28,6 @@
+ Requires-Dist: numpy
+ Requires-Dist: scipy
+ Requires-Dist: siphash24
+-Requires-Dist: tccbox
+ Provides-Extra: cuda
+ Requires-Dist: pycuda; extra == 'cuda'
+ Provides-Extra: dev
+diff --color -Naur sasmodels-1.1.0.orig/pyproject.toml sasmodels-1.1.0/pyproject.toml
+--- sasmodels-1.1.0.orig/pyproject.toml	2020-02-01 21:00:00.000000000 -0300
++++ sasmodels-1.1.0/pyproject.toml	2026-08-19 12:43:58.576977440 -0300
+@@ -12,7 +12,6 @@
+   "scipy",
+   "siphash24",
+   "sphinx",
+-  "tccbox",
+ ]
+ build-backend = "hatchling.build"
+ 

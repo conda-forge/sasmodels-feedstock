@@ -1,0 +1,71 @@
+schema_version: 1
+
+context:
+  version: "1.1.0"
+
+package:
+  name: sasmodels
+  version: ${{ version }}
+
+source:
+  - url: https://pypi.org/packages/source/s/sasmodels/sasmodels-${{ version }}.tar.gz 
+    sha256: b164fac1a48d262a90bc17be59d8279c42489bcd4ceafdddff0a8af83dc22306
+    patches:
+      # https://github.com/SasView/sasmodels/pull/752
+      - make_tccbox_optional.patch
+
+build:
+  number: 1
+  # Marked noarch: python because the .c sources are only compiled at runtime,
+  # and only for specific models. kerneldll.py picks up the system compiler
+  # (CC/msvc/mingw) automatically.
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - ${{ compiler("c") }}
+    - python ${{ python_min }}.*
+    - hatchling
+    - hatch-requirements-txt
+    - hatch-sphinx
+    - hatch-vcs
+    - bumps
+    - docutils
+    - matplotlib-base
+    - columnize
+    - numpy
+    - scipy
+    - siphash24
+    - sphinx
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - bumps
+    - columnize
+    - matplotlib-base
+    - numpy
+    - scipy
+    - siphash24
+
+tests:
+  - python:
+      imports:
+        - sasmodels
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: SasModels small-angle scattering modelling
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  homepage: http://sasview.org
+  documentation: https://www.sasview.org/docs/user/qtgui/Perspectives/Fitting/models/index.html
+
+extra:
+  recipe-maintainers:
+    - backmari
+    - tschoonj
+    - mrakitin
